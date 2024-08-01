@@ -42,12 +42,31 @@ namespace GerenciamentoVeiculos
         }
     }
 
-    internal class Program
+    public class Moto : Veiculo
+    {
+        public int Cilindrada { get; set; }
+
+        public Moto(string marca, string modelo, int cilindrada) : base(marca, modelo)
+        {
+            this.Cilindrada = cilindrada;
+        }
+
+        public override void ExibirDetalhes()
+        {
+            base.ExibirDetalhes();
+            Console.WriteLine($"É uma moto, Cilindrada {Cilindrada}");
+        }
+    }
+
+        internal class Program
     {
         static void Main(string[] args)
         {
-                Veiculo meuCarro = new Carro("Ford", "Fiesta", 4);
+            Veiculo meuCarro = new Carro("Ford", "Fiesta", 4);
+            Veiculo minhaMoto = new Moto("Honda", "CG", 160);
+
             meuCarro.ExibirDetalhes();
+            minhaMoto.ExibirDetalhes();
         }
     }
 }
